@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
+  <div>
     <Navbar/>
-    <router-view></router-view> 
+    <div class="app-body">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -14,4 +16,10 @@ export default {
   }  
 }
 </script>
+
+<style scoped>
+  .app-body {
+    text-align: center;
+  }
+</style>
 
