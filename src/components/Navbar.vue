@@ -1,21 +1,21 @@
 <template>
-  <div class="shadow">
-    <nav class="navbar do-narrow" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
+<div class="navbar shadow is-fixed-top">
+  <nav class="navbar is-fixed-top do-narrow" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="title">{{title}}</h1>
+      </div>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start"></div>
+      <div class="navbar-end">
         <div class="navbar-item">
-          <h1 class="title">{{title}}</h1>
+          <LoginButtons />
         </div>
       </div>
-      <div class="navbar-menu">
-        <div class="navbar-start"></div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <LoginButtons />
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+</div>
 </template>
 
 <script>
@@ -34,13 +34,14 @@ export default {
 <style scoped>
 
 .shadow {
-  box-shadow: 0px 2px 5px 3px #ccc;
+  box-shadow: 0px 0px 12px -6px rgb(20, 20, 20);
 }
 
 .do-narrow {
   margin: 0 auto;
   max-width: 80rem;
 }
+
 
 </style>
 
