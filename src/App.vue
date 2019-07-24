@@ -19,7 +19,8 @@ export default {
 
 <style scoped>
   .app-body {
-    text-align: center;
+    margin: 2rem auto;
+    max-width: 64rem;
   }
 </style>
 
