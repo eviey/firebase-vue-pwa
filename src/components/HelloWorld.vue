@@ -1,59 +1,40 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h2>🎉 Welcome to your new app</h2>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      We are glad that you are using this template. Deploying a Firebase Progressive Web App has never been this easy!
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener">pwa</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <h3>🏁 Getting started</h3>
+    <p>
+      Lets go through the things that you need to do to start using your app.
+    </p>
+    <h4>🔥 Integrate to Firebase</h4>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt, eros a faucibus sollicitudin, nunc nunc feugiat metus, vel ullamcorper metus sem at dolor. Vivamus posuere elementum mauris, vitae porttitor risus maximus non. Sed pulvinar ipsum ut orci tincidunt iaculis.
+    </p>
+    <h4>⚙️ Configure the template</h4>
+    <p>
+      Sed pulvinar ipsum ut orci tincidunt iaculis. Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.</p>
+    
+    <h3>🍺 Adding your content</h3>
+    <p>
+      Lets talk about adding your own views to the app.
+    </p>
+    <h4>↗️ Using the router</h4>
+    <p>
+      Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.</p>
+    <h4></h4>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  name: 'HelloWorld'
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
