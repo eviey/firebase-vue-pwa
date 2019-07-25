@@ -20,7 +20,8 @@ export default {
 <style scoped>
   .app-body {
     margin: 2rem auto;
-    max-width: 64rem;
+    max-width: 66rem;
+    padding: 0 2rem 0 2rem;
   }
 </style>
 
