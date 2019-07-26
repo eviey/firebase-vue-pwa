@@ -3,7 +3,9 @@
   <nav class="navbar is-fixed-top do-narrow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
-        <h1 class="title">{{title}}</h1>
+        <router-link to="/">
+          <h1 class="title">{{title}}</h1>
+        </router-link>
       </div>
       <a role="button" class="navbar-burger burger" id="navbar-burger" @click="toggleMenu">
         <span aria-hidden="true"></span>
