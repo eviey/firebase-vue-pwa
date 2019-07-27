@@ -46,6 +46,15 @@ export default {
       document.getElementById('navbar-menu').classList.toggle('is-active')
       document.getElementById('navbar-burger').classList.toggle('is-active')
     }
+  },
+  mounted: function () {
+    document.addEventListener('click', (event) => {
+      let targetElement = event.target;
+      if (targetElement != document.getElementById('navbar-burger')){
+        document.getElementById('navbar-menu').classList.remove('is-active')
+        document.getElementById('navbar-burger').classList.remove('is-active')
+      } 
+    })
   }
 };
 </script>
