@@ -1,4 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import Status from './statusCodes'
 
 export default {
     init: async function () { 
@@ -11,11 +13,40 @@ export default {
             storageBucket: "mca-talent-portal.appspot.com",
             messagingSenderId: "911582336556",
             appId: "1:911582336556:web:12f079833d0da2aa"
-        };
+        }
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+        try {
+            await firebase.initializeApp(firebaseConfig)
+        } catch (error) {
+            //return Promise.reject()
+        }
+
+        firebase.auth().onAuthStateChanged((user) => this.user = user)
+
     },
-    logIn: async function () { },
-    signUp: async function () { },
-    logOut: async function () { }
+    logIn: async function (email, password) {
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password)    
+        }
+        catch(error) {
+            if (error.code == 'auth/user-not-found')
+                return Status.Auth.UserNotFound
+            else
+                return Status.Auth.UnknownError
+        }
+        return Status.Auth.Success
+    },
+    signUp: async function (email, password) { 
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            //var errorCode = error.code;
+            //var errorMessage = error.message;
+            // ...
+            console.error (error)
+          })
+    },
+    logOut: async function () { 
+        await firebase.auth().signOut()
+    },
+    user: null
 }

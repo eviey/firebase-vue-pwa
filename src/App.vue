@@ -9,11 +9,17 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
+import Cloud from './cloud.js'
 
 export default {
   components: { 
     Navbar,
-  }  
+  },
+  mounted: async function () {
+    let component = this.$loading.open()
+    await Cloud.init()
+    component.close()
+  }
 }
 </script>
 

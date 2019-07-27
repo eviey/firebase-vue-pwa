@@ -1,20 +1,36 @@
 <template>
   <div class="buttons">
-    <b-button type="is-outlined is-primary" @click="dialogLogIn">Log in</b-button>
-    <b-button type="is-primary" @click="dialogSignUp">Sign up</b-button>
+    <div v-if="!isLoggedIn">
+      <b-button type="is-outlined is-primary" @click="dialogLogIn">Log in</b-button>
+      <b-button type="is-primary" @click="dialogSignUp">Sign up</b-button>
+    </div>
+    <div v-else>
+      <a type="is-primary" @click="logOut">Sign out</a>
+    </div>
   </div>
 </template>
 
 <script>
 import LoginForm from './LoginForm.vue'
+import Cloud from '../cloud.js'
 
 export default {
+  computed:{
+    isLoggedIn: function () {
+      return Cloud.user
+    }
+  },
   methods: {
     dialogLogIn: function () {
       this.dialog('login')
     },
     dialogSignUp: function () {
       this.dialog('signup')
+    },
+    logOut: async function () {
+      let component = this.$loading.open()
+      await Cloud.logOut()
+      component.close()
     },
     dialog: function(type) {
       this.$modal.open({
