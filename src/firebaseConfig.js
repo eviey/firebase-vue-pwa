@@ -1,10 +1,10 @@
 // Insert your firebase app configuration here!
 export default {
-    apiKey: "AIzaSyDj5kXz5vxpN7jRAbxLYaFniy3_mP5JBcE",
-    authDomain: "mca-talent-portal.firebaseapp.com",
-    databaseURL: "https://mca-talent-portal.firebaseio.com",
-    projectId: "mca-talent-portal",
-    storageBucket: "mca-talent-portal.appspot.com",
-    messagingSenderId: "911582336556",
-    appId: "1:911582336556:web:12f079833d0da2aa"
-}
+  apiKey: "AIzaSyBN-O7jG6EJ0oRu19mr0I0zpRaVQxWQwgw",
+  authDomain: "fir-vue-pwa-b7c26.firebaseapp.com",
+  databaseURL: "https://fir-vue-pwa-b7c26.firebaseio.com",
+  projectId: "fir-vue-pwa-b7c26",
+  storageBucket: "",
+  messagingSenderId: "173926361593",
+  appId: "1:173926361593:web:1f8d47caf6b14c47"
+};
