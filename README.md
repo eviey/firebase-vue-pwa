@@ -1,4 +1,4 @@
-# firebase-vue-pwa 0.1
+# firebase-vue-pwa
 
 A template containing a Progressive Web App with Firebase Authentication ready to go!
 
