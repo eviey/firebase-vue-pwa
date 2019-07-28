@@ -17,7 +17,7 @@ import Cloud from '../cloud.js'
 export default {
   computed:{
     isLoggedIn: function () {
-      return Cloud.user
+      return this.$store.state.user
     }
   },
   methods: {
@@ -30,6 +30,8 @@ export default {
     logOut: async function () {
       let component = this.$loading.open()
       await Cloud.logOut()
+      this.$store.commit('changeAuthState', Cloud.getAuthState())
+      this.$store.state
       component.close()
     },
     dialog: function(type) {

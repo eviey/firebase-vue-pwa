@@ -54,18 +54,21 @@ export default {
       let result
       try {
         document.getElementById('action-button').classList.add('is-loading')
+        
         if (this.type == 'signUp') {
           result = await Cloud.signUp(this.email, this.password)
         } else {
           result = await Cloud.logIn(this.email, this.password)
         }
 
-        if (result == Status.Auth.Success) this.$snackbar.open('Successfully signed in')
+        if (result == Status.Auth.Success) {
+          this.$store.commit('changeAuthState', Cloud.getAuthState())
+          this.$snackbar.open('Successfully signed in')
+        }
         else if (result == Status.Auth.UserNotFound) this.$snackbar.open('User not found!')
         else this.$snackbar.open('Unknown Error')
         
         document.getElementById('action-button').classList.remove('is-loading')
-
       }
       catch (error){
         this.$snackbar.open('Unknown ' + this.action + ' error.')

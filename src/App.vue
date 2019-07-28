@@ -15,6 +15,11 @@ export default {
   components: { 
     Navbar,
   },
+  computed: {
+    user: function () {
+      return this.$store.state.user
+    }
+  },
   mounted: async function () {
     let component = this.$loading.open()
     await Cloud.init()

@@ -48,5 +48,7 @@ export default {
     logOut: async function () { 
         await firebase.auth().signOut()
     },
-    user: null
+    getAuthState: function () {
+        return firebase.auth().currentUser
+    }
 }
