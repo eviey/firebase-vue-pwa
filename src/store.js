@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Status from './statusCodes'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: null
+    user: Status.Auth.Loading
   },
   mutations: {
     changeAuthState: function(state, authObject) {

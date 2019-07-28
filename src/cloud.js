@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import Status from './statusCodes'
+import Store from './store'
 
 export default {
     init: async function () { 
@@ -20,9 +21,7 @@ export default {
         } catch (error) {
             //return Promise.reject()
         }
-
-        firebase.auth().onAuthStateChanged((user) => this.user = user)
-
+        firebase.auth().onAuthStateChanged((user) => Store.commit('changeAuthState', user)) // TODO: Best way to handle?
     },
     logIn: async function (email, password) {
         try {
