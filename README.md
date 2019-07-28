@@ -1,5 +1,7 @@
 # firebase-vue-pwa
 
+A template containing a Progressive Web App with Firebase Authentication ready to go!
+
 ## Project setup
 ```
 npm install
@@ -27,3 +29,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## To do list
+
+- [x] Create PWA Gui
+- [x] Integrate Firebase Auth
+- [ ] Integrate Firebase Firestore
+- [ ] Create Generic App Views
+    - [ ] Dashboard
+    - [ ] Form
+    - [ ] Feed
