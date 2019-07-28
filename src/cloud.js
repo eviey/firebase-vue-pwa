@@ -17,7 +17,7 @@ export default {
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password)    
         }
-        catch(error) {
+        catch (error) {
             if (error.code == 'auth/user-not-found')
                 return Status.Auth.UserNotFound
             else
@@ -26,13 +26,16 @@ export default {
         return Status.Auth.Success
     },
     signUp: async function (email, password) { 
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-            // Handle Errors here.
-            //var errorCode = error.code;
-            //var errorMessage = error.message;
-            // ...
-            console.error (error)
-          })
+        try {
+            await firebase.auth().createUserWithEmailAndPassword(email, password)
+        }
+        catch (error) {
+            if(error.code == 'auth/email-already-in-use')
+                return Status.Auth.UserAlreadyExists        
+            else 
+                return Status.Auth.UnknownError
+        }
+        return Status.Auth.Success
     },
     logOut: async function () { 
         await firebase.auth().signOut()

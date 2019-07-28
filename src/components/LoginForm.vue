@@ -55,7 +55,7 @@ export default {
       try {
         document.getElementById('action-button').classList.add('is-loading')
         
-        if (this.type == 'signUp') {
+        if (this.type == 'signup') {
           result = await Cloud.signUp(this.email, this.password)
         } else {
           result = await Cloud.logIn(this.email, this.password)
@@ -63,6 +63,7 @@ export default {
 
         if (result == Status.Auth.Success) this.$snackbar.open('Successfully signed in')
         else if (result == Status.Auth.UserNotFound) this.$snackbar.open('User not found!')
+        else if (result == Status.Auth.UserAlreadyExists) this.$snackbar.open('User already exists!')
         else this.$snackbar.open('Unknown Error')
         
         document.getElementById('action-button').classList.remove('is-loading')

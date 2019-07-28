@@ -3,6 +3,7 @@ export default {
         Loading: 1,
         Success: 0,
         UnknownError: -1,
-        UserNotFound: -2
+        UserNotFound: -2,
+        UserAlreadyExists: -3
     }
 }
