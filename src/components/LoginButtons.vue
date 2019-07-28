@@ -8,7 +8,7 @@
       <b-button type="is-primary" @click="dialogSignUp">Sign up</b-button>
     </div>
     <div v-else>
-      <a type="is-primary" @click="logOut">Sign out</a>
+      <b-button type="is-primary is-outlined" @click="logOut">Sign out</b-button>
     </div>
   </div>
 </template>
