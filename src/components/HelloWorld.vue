@@ -22,8 +22,8 @@
     </p>
     <h4>↗️ Using the router</h4>
     <p>
-      Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.</p>
-    <h4></h4>
+      Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.
+    </p>
 
   </div>
 </template>
