@@ -1,19 +1,20 @@
 <template>
-  <div>
-    <Navbar/>
-    <div class="app-body content">
-      <router-view></router-view>
-    </div>
-  </div>
+  <body id="app">
+    <div v-if="user==1"></div>
+    <App v-else-if="user"/>
+    <Landing v-else/>
+  </body>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
+import App from './components/App.vue'
+import Landing from './views/Landing.vue'
 import Cloud from './cloud.js'
 
 export default {
-  components: { 
-    Navbar,
+  components: {
+    App,
+    Landing
   },
   computed: {
     user: function () {
@@ -28,11 +29,4 @@ export default {
 }
 </script>
 
-<style scoped>
-  .app-body {
-    margin: 2rem auto;
-    max-width: 66rem;
-    padding: 0 2rem 0 2rem;
-  }
-</style>
 

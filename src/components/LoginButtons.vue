@@ -4,8 +4,8 @@
       <!-- Display nothing until app is fully loaded -->
     </div>
     <div v-else-if="!isLoggedIn">
-      <b-button type="is-outlined is-primary" @click="dialogLogIn">Log in</b-button>
-      <b-button type="is-primary" @click="dialogSignUp">Sign up</b-button>
+      <b-button type="is-outlined is-primary is-inverted" @click="dialogLogIn">Log in</b-button>
+      <b-button type="is-primary is-inverted" @click="dialogSignUp">Sign up</b-button>
     </div>
     <div v-else>
       <b-button type="is-primary is-outlined" @click="logOut">Sign out</b-button>

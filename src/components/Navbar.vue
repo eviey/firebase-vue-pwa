@@ -1,5 +1,4 @@
 <template>
-<div class="navbar shadow is-fixed-top">
   <nav class="navbar is-fixed-top do-narrow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
@@ -14,8 +13,10 @@
       </a>
     </div>
     <div class="navbar-menu" id="navbar-menu">
-      <div class="navbar-start">
-        <router-link v-for="(item,i) in menu" :key="i" class="navbar-item" :to="item.route">{{item.label}}</router-link>
+      <div v-if="userIsLoggedIn" class="navbar-start">
+        <router-link v-for="(item,i) in menu" :key="i" :to="item.route" class="navbar-item">
+          <a>{{item.label}}</a>
+        </router-link>
       </div>
       <div class="navbar-end">
         <div class="navbar-item">
@@ -24,11 +25,11 @@
       </div>
     </div>
   </nav>
-</div>
 </template>
 
 <script>
 import LoginButtons from "./LoginButtons.vue";
+import Status from '../statusCodes'
 
 export default {
   components: { LoginButtons },
@@ -40,6 +41,12 @@ export default {
         {label: 'about', route: '/about'}
       ]
     };
+  },
+  computed: {
+    userIsLoggedIn: function () {
+      let usr = this.$store.state.user 
+      return usr != Status.Auth.Loading && usr != null
+    }
   },
   methods: {
     toggleMenu: function (){
@@ -61,13 +68,9 @@ export default {
 
 <style scoped>
 
-.shadow {
-  box-shadow: 0px 0px 12px -6px rgb(20, 20, 20);
-}
-
 .do-narrow {
   margin: 0 auto;
-  max-width: 80rem;
+  max-width: 86rem;
 }
 
 
