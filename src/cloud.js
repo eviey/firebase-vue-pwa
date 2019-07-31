@@ -11,7 +11,10 @@ export default {
         } catch (error) {
             //return Promise.reject()
         }
-        firebase.auth().onAuthStateChanged((user) => Store.commit('changeAuthState', user)) // TODO: Best way to handle?
+        firebase.auth().onAuthStateChanged((user) => {
+            Store.commit('changeAuthState', user)
+            Store.commit('setAppReady')
+        }) // TODO: Best way to handle?
     },
     logIn: async function (email, password) {
         try {
