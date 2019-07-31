@@ -1,8 +1,8 @@
 <template>
   <body id="app">
-    <div v-if="user==1"></div>
-    <App v-else-if="user"/>
-    <Landing v-else/>
+    <b-loading  v-if="!appReady"/>
+    <App        v-else-if="user"/>
+    <Landing    v-else/>
   </body>
 </template>
 
@@ -10,6 +10,8 @@
 import App from './components/App.vue'
 import Landing from './views/Landing.vue'
 import Cloud from './cloud.js'
+
+var loading
 
 export default {
   components: {
@@ -19,12 +21,20 @@ export default {
   computed: {
     user: function () {
       return this.$store.state.user
+    },
+    appReady: function () {
+      return this.$store.state.appReady
+    }
+  },
+  watch: {
+    appReady: function (){
+      loading.close()
     }
   },
   mounted: async function () {
-    let component = this.$loading.open()
+    loading = this.$loading.open()
+    setTimeout( () => loading.close(), 5000)
     await Cloud.init()
-    component.close()
   }
 }
 </script>
