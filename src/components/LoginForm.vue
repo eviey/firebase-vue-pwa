@@ -67,6 +67,7 @@ export default {
         else this.$snackbar.open('Unknown Error')
         
         document.getElementById('action-button').classList.remove('is-loading')
+        if (Cloud.getAuthState) this.$router.push('/app')
       }
       catch (error){
         this.$snackbar.open('Unknown ' + this.action + ' error.')

@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar do-narrow is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar do-narrow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
-        <router-link to="/app">
+        <router-link to="/">
           <h1 class="title">{{title}}</h1>
         </router-link>
       </div>
