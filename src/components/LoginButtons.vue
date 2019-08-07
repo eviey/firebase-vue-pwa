@@ -8,7 +8,7 @@
       <b-button type="is-primary is-inverted" @click="dialogSignUp">Sign up</b-button>
     </div>
     <div v-else>
-      <b-button type="is-primary is-outlined" @click="logOut">Sign out</b-button>
+      <b-button type="is-primary is-outlined" @click="signOut">Sign out</b-button>
     </div>
   </div>
 </template>
@@ -34,9 +34,15 @@ export default {
     dialogSignUp: function () {
       this.dialog('signup')
     },
-    logOut: async function () {
+    signOut: async function () {
       let component = this.$loading.open()
-      await Cloud.logOut()
+      let result = await Cloud.logOut()
+      
+      if (result == Status.Auth.Success) 
+        this.$snackbar.open('Signed out') 
+      else  
+        this.$snackbar.open('Error while signing out')
+      
       component.close()
     },
     dialog: function(type) {

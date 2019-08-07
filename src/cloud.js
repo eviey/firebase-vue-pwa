@@ -40,8 +40,14 @@ export default {
         }
         return Status.Auth.Success
     },
-    logOut: async function () { 
-        await firebase.auth().signOut()
+    logOut: async function () {
+        try {
+            await firebase.auth().signOut()
+        }
+        catch (error) {
+            return Status.Auth.UnknownError
+        }
+        return Status.Auth.Success
     },
     getAuthState: function () {
         return firebase.auth().currentUser
