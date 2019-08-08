@@ -6,9 +6,17 @@ import store from './store'
 import './registerServiceWorker'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBars /*  add more icons here */} from '@fortawesome/free-solid-svg-icons'
 
+library.add(faBars)
+Vue.component('vue-fontawesome', FontAwesomeIcon)
 Vue.use(Vuex)
-Vue.use(Buefy)
+Vue.use(Buefy, {
+  defaultIconComponent: 'vue-fontawesome',
+  defaultIconPack: 'fas'
+})
 Vue.config.productionTip = false
 
 new Vue({
