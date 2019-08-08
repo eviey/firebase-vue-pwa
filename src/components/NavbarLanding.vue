@@ -7,9 +7,9 @@
         </router-link>
       </div>
       <a role="button" class="navbar-burger burger" id="navbar-burger" @click="toggleMenu">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
+        <span aria-hidden="true" class="my-burger"></span>
+        <span aria-hidden="true" class="my-burger"></span>
+        <span aria-hidden="true" class="my-burger"></span>
       </a>
     </div>
     <div class="navbar-menu" id="navbar-menu">
@@ -73,6 +73,9 @@ export default {
   max-width: 86rem;
 }
 
+.my-burger {
+  color: white;
+}
 
 </style>
 
