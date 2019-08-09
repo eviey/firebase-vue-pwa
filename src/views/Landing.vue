@@ -1,5 +1,5 @@
 <template><div>
-  <section class="hero is-primary has-navbar-fixed-top is-medium">
+  <section class="hero is-primary has-navbar-fixed-top is-medium shadow">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <Navbar />
@@ -16,28 +16,32 @@
     </div>
   </section>
   <section class="content landing-body">
-    <div class="hello">
-    <h2>🏁 Getting started</h2>
-    <p>
-      Lets go through the things that you need to do to start using your app.
-    </p>
-    <h3>🔥 Integrate to Firebase</h3>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt, eros a faucibus sollicitudin, nunc nunc feugiat metus, vel ullamcorper metus sem at dolor. Vivamus posuere elementum mauris, vitae porttitor risus maximus non. Sed pulvinar ipsum ut orci tincidunt iaculis.
-    </p>
-    <h3>⚙️ Configure the template</h3>
-    <p>
-      Sed pulvinar ipsum ut orci tincidunt iaculis. Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.</p>
-    
-    <h2>🍺 Adding your content</h2>
-    <p>
-      Lets talk about adding your own views to the app.
-    </p>
-    <h3>↗️ Using the router</h3>
-    <p>
-      Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.
-    </p>
-  </div>
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <div class="tile is-child box">
+          <h3>🔥 Integrate to Firebase</h3>
+          <p>
+           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt, eros a faucibus sollicitudin, nunc nunc feugiat metus, vel ullamcorper metus sem at dolor. Vivamus posuere elementum mauris, vitae porttitor risus maximus non. Sed pulvinar ipsum ut orci tincidunt iaculis.
+          </p>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="tile is-child box">
+          <h3>⚙️ Configure the template</h3>
+          <p>
+            Sed pulvinar ipsum ut orci tincidunt iaculis. Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.
+          </p>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <div class="tile is-child box">
+          <h3>🍺 Add your content</h3>
+          <p>
+            Aliquam condimentum vestibulum leo, vitae posuere turpis auctor ac. Praesent ligula mauris, euismod a ante vitae, sodales volutpat dolor. Morbi pharetra erat non efficitur accumsan. Nullam mattis maximus ipsum sed pretium. Integer eget purus volutpat, mollis dui quis, pulvinar velit.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
   </div>
 </template>
@@ -66,6 +70,6 @@ export default {
     padding: 0 2rem 0 2rem;
   }
   .shadow {
-    box-shadow: 0px 0px 12px -6px rgb(20, 20, 20);
+    box-shadow: 0px 0px 6px 1px rgb(20, 20, 20);
   }
 </style>
