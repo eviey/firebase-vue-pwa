@@ -1,5 +1,5 @@
 <template><div>
-  <section class="hero is-primary has-navbar-fixed-top is-medium is-bold">
+  <section class="hero is-primary has-navbar-fixed-top is-medium">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <Navbar />
@@ -54,13 +54,12 @@ export default {
 </script>
 
 <style scoped>
-.my-content {
-  max-width: 52em;
-}
-.custom-field {
-  max-width: 32em;
-}
-
+  .my-content {
+    max-width: 52em;
+  }
+  .custom-field {
+    max-width: 32em;
+  }
   .landing-body {
     margin: 3em auto;
     max-width: 66rem;
@@ -69,5 +68,4 @@ export default {
   .shadow {
     box-shadow: 0px 0px 12px -6px rgb(20, 20, 20);
   }
-
 </style>
