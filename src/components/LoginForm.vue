@@ -34,6 +34,25 @@
         </b-field>
 
         <b-checkbox>Remember me</b-checkbox>
+
+        <b-field label="Or" style="padding-top:1em;">
+          <div class="buttons">
+            <b-button
+              label="Log In with Google"
+              icon-left="google"
+              icon-pack="fab"
+              type="button is-danger">
+            </b-button>
+            <b-button
+              label="Log In with Facebook"
+              icon-left="facebook-square"
+              icon-pack="fab"
+              type="button is-info">
+            </b-button>
+          </div>
+          
+        </b-field>
+
       </section>
       <footer class="modal-card-foot">
         <button class="button" @click="$parent.close()">Close</button>
