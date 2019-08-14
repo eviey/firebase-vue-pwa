@@ -1,5 +1,5 @@
 <template><div>
-  <section class="hero is-primary has-navbar-fixed-top is-medium shadow">
+  <section class="hero is-primary has-navbar-fixed-top is-medium shadow is-fullheight">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <Navbar />
