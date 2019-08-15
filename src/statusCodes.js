@@ -6,6 +6,7 @@ export default {
         UserNotFound: -2,
         UserAlreadyExists: -3,
         OperationNotAllowed: -4,
-        InvalidPassword: -5
+        InvalidPassword: -5,
+        WeakPassword: -6
     }
 }

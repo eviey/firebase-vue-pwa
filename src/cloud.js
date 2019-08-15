@@ -48,8 +48,11 @@ export default {
             await firebase.auth().createUserWithEmailAndPassword(email, password)
         }
         catch (error) {
+            console.log(error.code)
             if(error.code == 'auth/email-already-in-use')
                 return Status.Auth.UserAlreadyExists        
+            else if(error.code == 'auth/weak-password')
+                return Status.Auth.WeakPassword
             else 
                 return Status.Auth.UnknownError
         }

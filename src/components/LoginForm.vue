@@ -112,6 +112,8 @@ export default {
         this.$snackbar.open('This sign-in method is not enabled for this Firebase Project!')
       else if (result == Status.Auth.InvalidPassword)
         this.$snackbar.open(`Invalid password!`)
+      else if (result == Status.Auth.WeakPassword)
+        this.$snackbar.open(`Please chose a stronger password!`)
       else 
         this.$snackbar.open('Unknown authentication error.')
     }
