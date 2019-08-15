@@ -49,7 +49,8 @@
               label="Log In with Facebook"
               icon-left="facebook-square"
               icon-pack="fab"
-              type="button is-info">
+              type="button is-info"
+              disabled>
             </b-button>
           </div>
           
