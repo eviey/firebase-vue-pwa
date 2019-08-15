@@ -1,6 +1,5 @@
 <template>
-  <form action>
-    <div class="modal-card" style="width: auto">
+    <div class="modal-card" style="width: auto; min-width: 24em">
       <header class="modal-card-head">
         <p class="modal-card-title">Authenticate</p>
       </header>
@@ -26,7 +25,6 @@
           <b-input
             type="password"
             v-model="passwordConfirm"
-            password-reveal
             placeholder="Your password"
             required
           ></b-input>
@@ -34,28 +32,34 @@
 
         <b-checkbox>Remember me</b-checkbox>
 
-        <b-field label="Or" style="padding-top:1em;">
-          <div class="buttons">
-            <b-button
-              @click="authenticate('google', 'google-button')"
-              id="google-button"
-              label="Log In with Google"
-              icon-left="google"
-              icon-pack="fab"
-              type="button is-danger">
-            </b-button>
-            <b-button
-              @click="authenticate('facebook', 'facebook-button')"
-              id="facebook-button"
-              label="Log In with Facebook"
-              icon-left="facebook-square"
-              icon-pack="fab"
-              type="button is-info"
-              disabled>
-            </b-button>
-          </div>
-          
+        <b-field
+          v-if="hasFacebook || hasGoogle" 
+          label="Or" 
+          style="padding-top:1em;">
         </b-field>
+        <b-field>
+          <b-button
+            v-if="hasGoogle"
+            @click="authenticate('google', 'google-button')"
+            id="google-button"
+            label="Log In with Google"
+            icon-left="google"
+            icon-pack="fab"
+            type="button is-danger is-fullwidth">
+          </b-button>
+        </b-field>
+        <b-field>
+          <b-button
+            v-if="hasFacebook"
+            @click="authenticate('facebook', 'facebook-button')"
+            id="facebook-button"
+            label="Log In with Facebook"
+            icon-left="facebook-square"
+            icon-pack="fab"
+            type="button is-info is-fullwidth">
+          </b-button>
+        </b-field>
+          
 
       </section>
       <footer class="modal-card-foot">
@@ -76,7 +80,6 @@
         </b-button>
       </footer>
     </div>
-  </form>
 </template>
 
 <script>
@@ -84,7 +87,7 @@ import Cloud from '../cloud.js'
 import Status from '../statusCodes.js'
 
 export default {
-  props: ['dialogType'],
+  props: ['dialogType','hasFacebook', 'hasGoogle'],
   methods: {
     authenticate: async function (authType, buttonId){
       let result

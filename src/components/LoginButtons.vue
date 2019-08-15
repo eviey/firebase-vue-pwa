@@ -50,7 +50,11 @@ export default {
         parent: this,
         component: LoginForm,
         hasModalCard: true,
-        props: {dialogType: type}
+        props: {
+          dialogType: type,
+          hasGoogle: true,
+          hasFacebook: false
+        }
       });
     }
   }
