@@ -5,6 +5,7 @@ export default {
         UnknownError: -1,
         UserNotFound: -2,
         UserAlreadyExists: -3,
-        OperationNotAllowed: -4
+        OperationNotAllowed: -4,
+        InvalidPassword: -5
     }
 }

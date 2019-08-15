@@ -23,6 +23,8 @@ export default {
         catch (error) {
             if (error.code == 'auth/user-not-found')
                 return Status.Auth.UserNotFound
+            else if(error.code == 'auth/wrong-password')
+                return Status.Auth.InvalidPassword
             else
                 return Status.Auth.UnknownError
         }
