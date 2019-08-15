@@ -4,6 +4,7 @@ export default {
         Success: 0,
         UnknownError: -1,
         UserNotFound: -2,
-        UserAlreadyExists: -3
+        UserAlreadyExists: -3,
+        OperationNotAllowed: -4
     }
 }

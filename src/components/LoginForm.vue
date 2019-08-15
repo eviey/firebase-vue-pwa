@@ -38,6 +38,8 @@
         <b-field label="Or" style="padding-top:1em;">
           <div class="buttons">
             <b-button
+              @click="googleLogIn"
+              id="google-button"
               label="Log In with Google"
               icon-left="google"
               icon-pack="fab"
@@ -91,6 +93,24 @@ export default {
       catch (error){
         this.$snackbar.open('Unknown ' + this.action + ' error.')
       }
+      this.$parent.close()
+    },
+    googleLogIn: async function (){
+      let result
+      try {
+        document.getElementById('google-button').classList.add('is-loading')
+        result = await Cloud.googleLogIn()
+        if (result == Status.Auth.Success)
+          this.$snackbar.open('Successfully signed in')
+        else if (result == Status.Auth.OperationNotAllowed)
+          this.$snackbar.open('Google Sign-In is not enabled in this Firebase Project!')
+        else
+          throw(result)
+      }
+      catch (error){
+        this.$snackbar.open('Unknown error.')        
+      }
+      document.getElementById('google-button').classList.remove('is-loading')        
       this.$parent.close()
     }
   },
