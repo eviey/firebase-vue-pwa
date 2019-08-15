@@ -50,7 +50,7 @@ export default {
         parent: this,
         component: LoginForm,
         hasModalCard: true,
-        props: {type: type}
+        props: {dialogType: type}
       });
     }
   }

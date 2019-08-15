@@ -23,7 +23,7 @@
           ></b-input>
         </b-field>
 
-        <b-field label="Confirm password" v-if="type == 'signup'">
+        <b-field label="Confirm password" v-if="dialogType == 'signup'">
           <b-input
             type="password"
             v-model="passwordConfirm"
@@ -70,54 +70,52 @@ import Cloud from '../cloud.js'
 import Status from '../statusCodes.js'
 
 export default {
-  props: ['type'],
+  props: ['dialogType'],
   methods: {
     login: async function () {
       let result
-      try {
-        document.getElementById('action-button').classList.add('is-loading')
-        
-        if (this.type == 'signup') {
-          result = await Cloud.signUp(this.email, this.password)
-        } else {
-          result = await Cloud.logIn(this.email, this.password)
-        }
+      document.getElementById('action-button').classList.add('is-loading')
+      
+      if (this.dialogType == 'signup') {
+        result = await Cloud.signUp(this.email, this.password)
+      } else {
+        result = await Cloud.logIn(this.email, this.password)
+      }
 
-        if (result == Status.Auth.Success) this.$snackbar.open('Successfully signed in')
-        else if (result == Status.Auth.UserNotFound) this.$snackbar.open('User not found!')
-        else if (result == Status.Auth.UserAlreadyExists) this.$snackbar.open('User already exists!')
-        else this.$snackbar.open('Unknown Error')
-        
-        document.getElementById('action-button').classList.remove('is-loading')
-        if (Cloud.getAuthState) this.$router.push('/app')
-      }
-      catch (error){
-        this.$snackbar.open('Unknown ' + this.action + ' error.')
-      }
+      this.handleAuthFeedback(result)
+      
+      document.getElementById('action-button').classList.remove('is-loading')
+      if (Cloud.getAuthState) this.$router.push('/app')
       this.$parent.close()
     },
     googleLogIn: async function (){
-      let result
-      try {
-        document.getElementById('google-button').classList.add('is-loading')
-        result = await Cloud.googleLogIn()
-        if (result == Status.Auth.Success)
-          this.$snackbar.open('Successfully signed in')
-        else if (result == Status.Auth.OperationNotAllowed)
-          this.$snackbar.open('Google Sign-In is not enabled in this Firebase Project!')
-        else
-          throw(result)
-      }
-      catch (error){
-        this.$snackbar.open('Unknown error.')        
-      }
+      console.log(this.$el)
+      this.$el.classList.add('is-loading')
+      
+      let result = await Cloud.googleLogIn()
+      this.handleAuthFeedback(result)
+      
       document.getElementById('google-button').classList.remove('is-loading')        
       this.$parent.close()
+    },
+    handleAuthFeedback: function (result){
+      if (result == Status.Auth.Success)
+        this.$snackbar.open('Successfully signed in')
+      else if (result == Status.Auth.UserNotFound) 
+        this.$snackbar.open('User not found!')
+      else if (result == Status.Auth.UserAlreadyExists) 
+        this.$snackbar.open('User already exists!')
+      else if (result == Status.Auth.OperationNotAllowed)
+        this.$snackbar.open('Google sign-In is not enabled in this Firebase Project!')
+      else if (result == Status.Auth.InvalidPassword)
+        this.$snackbar.open(`Invalid password!`)
+      else 
+        this.$snackbar.open('Unknown authentication error.')
     }
   },
   computed: {
     action: function (){
-      return this.type == 'signup' ? 'Sign up' : 'Log in'
+      return this.dialogType == 'signup' ? 'Sign up' : 'Log in'
     }
   },
   data: function () {
