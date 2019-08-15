@@ -43,6 +43,19 @@ export default {
                 return Status.Auth.UnknownError
         }
     },
+    facebookLogIn: async function () {
+        try {
+            let provider = new firebase.auth.FacebookAuthProvider();
+            await firebase.auth().signInWithPopup(provider)
+            return Status.Auth.Success
+        }
+        catch (error) {
+            if (error.code == 'auth/operation-not-allowed') 
+                return Status.Auth.OperationNotAllowed
+            else
+                return Status.Auth.UnknownError
+        }
+    },
     signUp: async function (email, password) { 
         try {
             await firebase.auth().createUserWithEmailAndPassword(email, password)
