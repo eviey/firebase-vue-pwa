@@ -9,14 +9,13 @@ import 'buefy/dist/buefy.css'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import { faBars /*  add more icons here */} from '@fortawesome/free-solid-svg-icons'
+//import { *  add more icons here */} from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faFacebookSquare, faGoogle)
+library.add(faFacebookSquare, faGoogle)
 Vue.component('vue-fontawesome', FontAwesomeIcon)
 Vue.use(Vuex)
 Vue.use(Buefy, {
-  defaultIconComponent: 'vue-fontawesome',
-  defaultIconPack: 'fas'
+  defaultIconComponent: 'vue-fontawesome'
 })
 Vue.config.productionTip = false
 

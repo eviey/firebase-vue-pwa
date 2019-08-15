@@ -17,7 +17,6 @@
           <b-input
             type="password"
             v-model="password"
-            password-reveal
             placeholder="Your password"
             required
           ></b-input>
@@ -94,9 +93,8 @@ export default {
       else if (authType == 'facebook') result = await Cloud.facebookLogIn()
       else if (authType == 'log-in') result = await Cloud.logIn(this.email, this.password)
       else if (authType == 'sign-up') result = await Cloud.signUp(this.email, this.password)
-      this.handleAuthResponse(result)
       document.getElementById(buttonId).classList.remove('is-loading')        
-      this.$parent.close()
+      this.handleAuthResponse(result)
     },
     handleAuthResponse: function (result){
       if (result == Status.Auth.Success) {
