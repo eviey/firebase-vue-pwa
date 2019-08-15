@@ -94,11 +94,11 @@ export default {
       else if (authType == 'facebook') result = await Cloud.facebookLogIn()
       else if (authType == 'log-in') result = await Cloud.logIn(this.email, this.password)
       else if (authType == 'sign-up') result = await Cloud.signUp(this.email, this.password)
-      this.handleAuthFeedback(result)
+      this.handleAuthResponse(result)
       document.getElementById(buttonId).classList.remove('is-loading')        
       this.$parent.close()
     },
-    handleAuthFeedback: function (result){
+    handleAuthResponse: function (result){
       if (result == Status.Auth.Success) {
         this.$router.push('/app')
         this.$snackbar.open('Successfully signed in')
