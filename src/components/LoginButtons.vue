@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     dialogLogIn: function () {
-      this.dialog('login')
+      this.dialog('log-in')
     },
     dialogSignUp: function () {
-      this.dialog('signup')
+      this.dialog('sign-up')
     },
     signOut: async function () {
       let component = this.$loading.open()

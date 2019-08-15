@@ -2,7 +2,7 @@
   <form action>
     <div class="modal-card" style="width: auto">
       <header class="modal-card-head">
-        <p class="modal-card-title">{{action}}</p>
+        <p class="modal-card-title">Authenticate</p>
       </header>
       <section class="modal-card-body">
         <b-field label="Email">
@@ -23,7 +23,7 @@
           ></b-input>
         </b-field>
 
-        <b-field label="Confirm password" v-if="dialogType == 'signup'">
+        <b-field label="Confirm password" v-if="dialogType == 'sign-up'">
           <b-input
             type="password"
             v-model="passwordConfirm"
@@ -38,7 +38,7 @@
         <b-field label="Or" style="padding-top:1em;">
           <div class="buttons">
             <b-button
-              @click="googleLogIn"
+              @click="authenticate('google', 'google-button')"
               id="google-button"
               label="Log In with Google"
               icon-left="google"
@@ -46,6 +46,8 @@
               type="button is-danger">
             </b-button>
             <b-button
+              @click="authenticate('facebook', 'facebook-button')"
+              id="facebook-button"
               label="Log In with Facebook"
               icon-left="facebook-square"
               icon-pack="fab"
@@ -59,7 +61,20 @@
       </section>
       <footer class="modal-card-foot">
         <button class="button" @click="$parent.close()">Close</button>
-        <button class="button is-primary" @click="login" id="action-button">{{action}}</button>
+        <b-button 
+          v-if="dialogType=='sign-up'"
+          label="Sign Up"
+          type ="button is-primary" 
+          @click="authenticate('sign-up', 'action-button')" 
+          id="action-button">
+        </b-button>
+        <b-button 
+          v-else
+          label="Log In"
+          type ="button is-primary" 
+          @click="authenticate('log-in', 'action-button')" 
+          id="action-button">
+        </b-button>
       </footer>
     </div>
   </form>
@@ -72,50 +87,33 @@ import Status from '../statusCodes.js'
 export default {
   props: ['dialogType'],
   methods: {
-    login: async function () {
+    authenticate: async function (authType, buttonId){
       let result
-      document.getElementById('action-button').classList.add('is-loading')
-      
-      if (this.dialogType == 'signup') {
-        result = await Cloud.signUp(this.email, this.password)
-      } else {
-        result = await Cloud.logIn(this.email, this.password)
-      }
-
+      document.getElementById(buttonId).classList.add('is-loading')        
+      if (authType == 'google') result = await Cloud.googleLogIn()
+      else if (authType == 'facebook') result = await Cloud.facebookLogIn()
+      else if (authType == 'log-in') result = await Cloud.logIn(this.email, this.password)
+      else if (authType == 'sign-up') result = await Cloud.signUp(this.email, this.password)
       this.handleAuthFeedback(result)
-      
-      document.getElementById('action-button').classList.remove('is-loading')
-      if (Cloud.getAuthState) this.$router.push('/app')
-      this.$parent.close()
-    },
-    googleLogIn: async function (){
-      console.log(this.$el)
-      this.$el.classList.add('is-loading')
-      
-      let result = await Cloud.googleLogIn()
-      this.handleAuthFeedback(result)
-      
-      document.getElementById('google-button').classList.remove('is-loading')        
+      document.getElementById(buttonId).classList.remove('is-loading')        
       this.$parent.close()
     },
     handleAuthFeedback: function (result){
-      if (result == Status.Auth.Success)
+      if (result == Status.Auth.Success) {
+        this.$router.push('/app')
         this.$snackbar.open('Successfully signed in')
+        this.$parent.close()
+      }
       else if (result == Status.Auth.UserNotFound) 
         this.$snackbar.open('User not found!')
       else if (result == Status.Auth.UserAlreadyExists) 
         this.$snackbar.open('User already exists!')
       else if (result == Status.Auth.OperationNotAllowed)
-        this.$snackbar.open('Google sign-In is not enabled in this Firebase Project!')
+        this.$snackbar.open('This sign-in method is not enabled for this Firebase Project!')
       else if (result == Status.Auth.InvalidPassword)
         this.$snackbar.open(`Invalid password!`)
       else 
         this.$snackbar.open('Unknown authentication error.')
-    }
-  },
-  computed: {
-    action: function (){
-      return this.dialogType == 'signup' ? 'Sign up' : 'Log in'
     }
   },
   data: function () {
