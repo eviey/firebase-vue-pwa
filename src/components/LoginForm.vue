@@ -59,7 +59,6 @@
             type="button is-info is-fullwidth">
           </b-button>
         </b-field>
-          
 
       </section>
       <footer class="modal-card-foot">
