@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     dialogLogIn: function () {
-      this.dialog('login')
+      this.dialog('log-in')
     },
     dialogSignUp: function () {
-      this.dialog('signup')
+      this.dialog('sign-up')
     },
     signOut: async function () {
       let component = this.$loading.open()
@@ -50,7 +50,11 @@ export default {
         parent: this,
         component: LoginForm,
         hasModalCard: true,
-        props: {type: type}
+        props: {
+          dialogType: type,
+          hasGoogle: true,
+          hasFacebook: false
+        }
       });
     }
   }
