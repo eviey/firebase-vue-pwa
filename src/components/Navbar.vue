@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar do-narrow is-fixed-top" role="navigation" aria-label="main navigation">
+  <nav class="navbar do-narrow is-fixed-top is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <div class="navbar-item">
         <router-link to="/app">
@@ -15,7 +15,7 @@
     <div class="navbar-menu" id="navbar-menu">
       <div v-if="userIsLoggedIn" class="navbar-start">
         <router-link v-for="(item,i) in menu" :key="i" :to="item.route" class="navbar-item">
-          <a>{{item.label}}</a>
+          <a class="has-text-dark">{{item.label}}</a>
         </router-link>
       </div>
       <div class="navbar-end">

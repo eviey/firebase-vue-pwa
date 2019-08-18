@@ -7,9 +7,9 @@
         </router-link>
       </div>
       <a role="button" class="navbar-burger burger" id="navbar-burger" @click="toggleMenu">
-        <span aria-hidden="true" class="my-burger"></span>
-        <span aria-hidden="true" class="my-burger"></span>
-        <span aria-hidden="true" class="my-burger"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </a>
     </div>
     <div class="navbar-menu" id="navbar-menu">
@@ -67,16 +67,10 @@ export default {
 </script>
 
 <style scoped>
-
-.do-narrow {
-  margin: 0 auto;
-  max-width: 86rem;
-}
-
-.my-burger {
-  color: white;
-}
-
+  .do-narrow {
+    margin: 0 auto;
+    max-width: 86rem;
+  }
 </style>
 
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="navbar shadow is-fixed-top">
+        <div class="navbar shadow is-fixed-top is-primary">
             <Navbar/>
         </div>
         <div class="app-body content">

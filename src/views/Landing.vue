@@ -70,6 +70,6 @@ export default {
     padding: 0 2rem 0 2rem;
   }
   .shadow {
-    box-shadow: 0px 0px 6px 1px rgb(20, 20, 20);
+    box-shadow: 0px 0px 30px -14px rgb(20, 20, 20);
   }
 </style>
