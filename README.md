@@ -52,3 +52,20 @@ Connect the app with your Firebase project, or [create one](https://firebase.goo
 
 ### Adding Content
 *Comming Soon!*
+
+## Deploying
+
+Install *Firebase CLI*:
+``` sh
+npm install -g firebase-tools
+```
+
+Build your app for production:
+``` sh
+npm run build
+```
+
+Deploy to *Firebase Hosting*
+``` sh
+firebase deploy
+```
