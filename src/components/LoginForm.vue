@@ -1,5 +1,6 @@
 <template>
-    <div class="modal-card" style="width: auto; min-width: 24em">
+  <form auto="">
+    <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Authenticate</p>
       </header>
@@ -79,6 +80,7 @@
         </b-button>
       </footer>
     </div>
+  </form>
 </template>
 
 <script>
